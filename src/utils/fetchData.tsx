@@ -8,7 +8,7 @@ interface FetchOptions {
 const fetchData = async (options: FetchOptions) => {
     const { endpoint, params } = options;
     const baseUrl = 'https://api.themoviedb.org/3';
-    const apiKey = `Bearer ${process.env.NEXT_PUBLIC_TMDB_API_KEY}`;
+    const apiKey = process.env.NEXT_PUBLIC_TMDB_API_KEY;
 
     try {
         const response = await axios.get(`${baseUrl}${endpoint}`, {
