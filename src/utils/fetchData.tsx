@@ -5,7 +5,7 @@ interface FetchOptions {
     params?: Record<string, any>;
 }
 
-const fetchData = async (options: FetchOptions) => {
+export async function fetchData (options: FetchOptions) {
     const { endpoint, params } = options;
     const baseUrl = 'https://api.themoviedb.org/3';
     const apiKey = process.env.NEXT_PUBLIC_TMDB_API_KEY;
@@ -24,5 +24,3 @@ const fetchData = async (options: FetchOptions) => {
         throw error;
     }
 };
-
-export default fetchData;
