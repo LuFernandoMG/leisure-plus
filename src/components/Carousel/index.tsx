@@ -1,7 +1,7 @@
 "use client";
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
-import { Card } from "./Card";
+import { Card } from "../Card";
 import { Movie } from "@/utils/types";
 import styles from "./Carousel.module.scss";
 

@@ -12,7 +12,7 @@ export async function getGenresList() {
     return [];
   }
 }
-export async function getGenres(genreIds: number[]): Promise<string[]> {
+export async function getGenres(genreIds: number[]): Promise<string> {
   try {
     const genres: string[] = [];
 
@@ -27,9 +27,9 @@ export async function getGenres(genreIds: number[]): Promise<string[]> {
       genres.push(genre);
     }
     
-    return genres;
+    return genres.join(" • ");
   } catch (error) {
     console.error("Error fetching genres:", error);
-    return [];
+    return '';
   }
 }

@@ -10,12 +10,11 @@ interface CardProps {
 }
 
 export const Card: React.FC<CardProps> = async ({ movie }) => {
-  const genresList = await getGenres(movie.genre_ids);
+  const genresList = await getGenres(movie.genre_ids || []);
 
   return (
-    <div className="keen-slider__slide" key={movie.id} style={{ overflow: "visible", position: 'relative' }}>
-      <div className={styles.card} style={{ overflow: "visible" }}>
-        <div className={styles.card__container} style={{ zIndex: 100 }}>
+      <div className={`${styles.card} keen-slider__slide`} style={{ overflow: 'visible' }}>
+        <div className={styles.card__container}>
           <Image
             src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
             width={0}
@@ -26,7 +25,7 @@ export const Card: React.FC<CardProps> = async ({ movie }) => {
           />
           <div className={styles.cardHovered__info}>
             <h3>{movie.title}</h3>
-            <p className={styles.movie__genres}>{genresList.join(" • ")}</p>
+            <p className={styles.movie__genres}>{genresList}</p>
             <p className={styles.score}>{`Score: ${movie.vote_average.toFixed(
               1
             )}/10`}</p>
@@ -41,6 +40,5 @@ export const Card: React.FC<CardProps> = async ({ movie }) => {
           </div>
         </div>
       </div>
-    </div>
   );
 };

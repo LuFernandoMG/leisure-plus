@@ -1,5 +1,7 @@
 .carousel_wrapper {
     position: relative;
+    padding: 0 2rem;
+    z-index: 0;
 
     h2 {
         color: white;
@@ -8,6 +10,7 @@
 
     .keen-slider {
         position: relative;
+        z-index: 1;
     }
 }
 
