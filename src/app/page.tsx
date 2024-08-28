@@ -19,14 +19,18 @@ export default async function Home() {
     <main className={styles.main}>
       <div className={styles.movie_container}>
         <Hero movie={heroMovie} />
-        <Carousel movies={popularMovies.results} title="Popular movies" />
+        <Carousel elements={popularMovies.results} title="Popular movies" />
         <Featured videoUrl="https://www.youtube.com/embed/YN2H_sKcmGw?si=r2v1M_pZpbk-QsN_" switchSides>
           <Poster element={featuredShowGOT} />
           <Poster element={featuredShowHOTD} />
         </Featured>
-        <Carousel movies={popularSeries.results} title="Popular TV Shows" />
-        <Carousel movies={topRatedSeries.results} title="Top rated TV Shows" />
-        <Carousel movies={topRatedMovies.results} title="Top rated Movies" />
+        <Carousel elements={popularSeries.results} title="Popular TV Shows" />
+        <Featured videoUrl="https://www.youtube.com/embed/YN2H_sKcmGw?si=r2v1M_pZpbk-QsN_" switchSides={false}>
+          <Poster element={featuredShowGOT} />
+          <Poster element={featuredShowHOTD} />
+        </Featured>
+        <Carousel elements={topRatedSeries.results} title="Top rated TV Shows" />
+        <Carousel elements={topRatedMovies.results} title="Top rated Movies" />
       </div>
     </main>
   );
