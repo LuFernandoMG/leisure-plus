@@ -26,7 +26,7 @@ const Hero: React.FC<HeroProps> = async ({ movie }) => {
             width={1280}
             height={720}
             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-            alt={movie.title}
+            alt={movie.title || ''}
           />
         </div>
         <div className={styles.information}>
