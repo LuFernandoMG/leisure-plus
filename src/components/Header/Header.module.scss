@@ -1,0 +1,28 @@
+.header {
+    position: absolute;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    width: 100vw;
+    z-index: 2;
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        gap: 3rem;
+        color: #101010;
+        margin: 2rem;
+
+        li {
+            cursor: pointer;
+            &:hover {
+                color: #434343;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.logo {
+    margin: .5rem 1rem;
+}

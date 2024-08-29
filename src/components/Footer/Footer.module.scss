@@ -1,0 +1,44 @@
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    background-color: #f2f2f2;
+}
+
+.column {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.description {
+    font-size: 14px;
+    color: #333;
+}
+
+.technical-info {
+    font-size: 14px;
+    color: #333;
+}
+
+.developer {
+    font-size: 14px;
+    color: #333;
+}
+
+.icons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.icon {
+    margin-right: 10px;
+}
+
+.logo {
+    width: 30px;
+    height: 30px;
+}

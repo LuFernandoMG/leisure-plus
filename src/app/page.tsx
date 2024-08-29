@@ -31,7 +31,7 @@ export default async function Home() {
           videoTitle="The George RR Martin Universe"
         >
           <div>
-            <Poster position={1} element={featuredShowGOT} />
+            <Poster element={featuredShowGOT} />
             <Poster element={featuredShowHOTD} />
           </div>
         </Featured>

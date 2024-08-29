@@ -1,0 +1,56 @@
+.Search {
+    display: flex;
+    align-items: center;
+}
+
+.Search__button_inactive {
+    background-color: transparent;
+    border-bottom: 1px solid #101010;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    
+    svg {
+        color: #101010;
+        font-size: 1.5rem;
+    }
+}
+
+.Search__button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    
+    svg {
+        color: #101010;
+        font-size: 1.5rem;
+    }
+}
+
+.Search__form {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #101010;
+
+    input {
+        background-color: transparent;
+        padding: 0.5rem;
+        border: none;
+        transition: display 0.5s ease;
+        outline: none;
+        color: #101010;
+    }
+
+    button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        outline: none;
+
+        svg {
+            color: #101010;
+            font-size: 1.5rem;
+        }
+    }
+}
