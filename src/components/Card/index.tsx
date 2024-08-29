@@ -9,7 +9,7 @@ interface CardProps {
   className?: string;
 }
 
-export const Card: React.FC<CardProps> = async ({ element }) => {
+const Card: React.FC<CardProps> = async ({ element }) => {
   let genres = "";
 
   if ("genre_ids" in element) {
@@ -49,3 +49,5 @@ export const Card: React.FC<CardProps> = async ({ element }) => {
       </div>
   );
 };
+
+export default Card;
