@@ -1,4 +1,5 @@
 import { Movie } from "@/utils/types";
+import Image from "next/image";
 import styles from "./Hero.module.scss";
 import { fetchData } from "@/utils/fetchData";
 import { FaGlobe, FaHeart, FaInfo } from "react-icons/fa6";
@@ -20,8 +21,10 @@ const Hero: React.FC<HeroProps> = async ({ movie }) => {
     >
       <div className={styles.hero_content}>
         <div>
-          <img
+          <Image
             className={styles.hero_poster}
+            width={1280}
+            height={720}
             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
             alt={movie.title}
           />
