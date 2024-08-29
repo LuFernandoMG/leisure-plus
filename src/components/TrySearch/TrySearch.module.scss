@@ -1,0 +1,16 @@
+.try_search {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    p {
+        font-size: 1.5rem;
+        color: white;
+        font-weight: 300;
+        font-style: italic;
+        margin-top: 1rem;
+        margin-bottom: 3rem;
+
+    }
+}

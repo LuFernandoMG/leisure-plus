@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import styles from "./page.module.scss";
 import Featured from "@/components/Featured";
 import Poster from "@/components/Poster";
+import TrySearch from "@/components/TrySearch";
 
 export default async function Home() {
   const popularMovies = await fetchData({ endpoint: "/movie/popular" });
@@ -61,6 +62,7 @@ export default async function Home() {
           elements={topRatedMovies.results}
           title="Top rated Movies"
         />
+        <TrySearch />
       </div>
     </main>
   );

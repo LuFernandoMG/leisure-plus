@@ -4,7 +4,11 @@ import { useRouter } from "next/navigation";
 import styles from "./Search.module.scss";
 import { FaSearch } from "react-icons/fa";
 
-const Search: React.FC = () => {
+interface SearchProps {
+  light?: boolean;
+}
+
+const Search: React.FC<SearchProps> = ({ light }) => {
   const [isInputVisible, setIsInputVisible] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const router = useRouter();
@@ -27,18 +31,18 @@ const Search: React.FC = () => {
   return (
     <div className={styles.Search}>
       {!isInputVisible ? (
-        <button onClick={handleIconClick} className={styles.Search__button_inactive}>
+        <button onClick={handleIconClick} className={light ? styles.Search__button_inactive_light : styles.Search__button_inactive}>
           <FaSearch />
         </button>
       ) : (
-        <form onSubmit={handleFormSubmit} className={styles.Search__form}>
+        <form onSubmit={handleFormSubmit} className={light ? styles.Search__form_light : styles.Search__form}>
           <input
             type="text"
             value={searchTerm}
             onChange={handleInputChange}
             placeholder="Enter search term"
           />
-          <button type="submit" className={styles.Search__button}>
+          <button type="submit" className={light ? styles.Search__button_light : styles.Search__button}>
             <FaSearch />
           </button>
         </form>

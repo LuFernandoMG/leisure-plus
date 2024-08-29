@@ -16,6 +16,19 @@
     }
 }
 
+.Search__button_inactive_light {
+    background-color: transparent;
+    border-bottom: 1px solid white;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    
+    svg {
+        color: white;
+        font-size: 1.5rem;
+    }
+}
+
 .Search__button {
     background-color: transparent;
     border: none;
@@ -24,6 +37,18 @@
     
     svg {
         color: #101010;
+        font-size: 1.5rem;
+    }
+}
+
+.Search__button_light {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    
+    svg {
+        color: white;
         font-size: 1.5rem;
     }
 }
@@ -50,6 +75,33 @@
 
         svg {
             color: #101010;
+            font-size: 1.5rem;
+        }
+    }
+}
+
+.Search__form_light {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid white;
+
+    input {
+        background-color: transparent;
+        padding: 0.5rem;
+        border: none;
+        transition: display 0.5s ease;
+        outline: none;
+        color: white;
+    }
+
+    button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        outline: none;
+
+        svg {
+            color: white;
             font-size: 1.5rem;
         }
     }
