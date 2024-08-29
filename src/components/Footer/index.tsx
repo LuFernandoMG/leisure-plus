@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
                 </div>
                 <div className={`${styles.column} ${styles.developer}`}>
                     <h3>Wanna know something about me?</h3>
-                    <p>I'm a self-taught Software Engineer with over six years of experience, I have a deep pasion for digital products and innovation in general, I've been a geek since I can remember and become a developer after reading a book named "Salvese quien pueda" writed by Andrés Oppenheimer.</p>
+                    <p>I'm a self-taught Software Engineer with over six years of experience, I have a deep pasion for digital products and innovation in general, I've been a geek since I can remember and become a developer after reading a book named <b>Salvese quien pueda</b> writed by Andrés Oppenheimer.</p>
                     <p>As random facts: My undergraduate degree is in Animal Production Engineering, and I also have a huge interest in political science and public administration, currently I'm studying an MPA at the <a href="https://www.iesa.edu.ve/">IESA</a> in Venezuela.</p>
                     <div className={styles.icons}>
                         <a href="https://github.com/LuFernandoMG">
