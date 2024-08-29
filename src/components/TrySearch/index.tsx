@@ -8,7 +8,7 @@ const TrySearch: React.FC = () => {
         <div className={styles.try_search}>
             <Image src="/assets/cat_sleeping.png" width="640" height="425" alt="Search Image" />
             <Search light />
-            <p>Didn't find what you were looking for? Try searching for something else!</p>
+            <p>Didn&apos;t find what you were looking for? Try searching for something else!</p>
         </div>
     );
 };
