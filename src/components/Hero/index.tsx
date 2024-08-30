@@ -1,8 +1,9 @@
 import { Movie } from "@/utils/types";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "./Hero.module.scss";
-import { fetchData } from "@/utils/fetchData";
-import { FaGlobe, FaHeart, FaInfo } from "react-icons/fa6";
+import { FaGlobe, FaInfo } from "react-icons/fa6";
+import FavButton from "../FavButton";
 
 interface HeroProps {
   movie: Movie;
@@ -23,25 +24,28 @@ const Hero: React.FC<HeroProps> = async ({ movie }) => {
         <div>
           <Image
             className={styles.hero_poster}
-            width={1280}
+            width={500}
             height={720}
             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-            alt={movie.title || ''}
+            alt={movie.title || ""}
           />
         </div>
         <div className={styles.information}>
           <span className={styles.hero_title}>
             <h1>{movie.title}</h1>
             <div className={styles.icons}>
-              <button>
+              <Link
+                href={`/?type=movie&show=true&id=${movie.id}`}
+                scroll={false}
+              >
                 <FaInfo />
-              </button>
-              <button>
-                <FaHeart />
-              </button>
-              <button>
-                <FaGlobe />
-              </button>
+              </Link>
+              <FavButton sm element={movie} />
+              {movie.homepage && (
+                <Link href={movie.homepage}>
+                  <FaGlobe />
+                </Link>
+              )}
             </div>
           </span>
           <p className={styles.hero_genres}>{genres}</p>

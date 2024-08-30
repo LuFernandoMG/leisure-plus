@@ -8,7 +8,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Leisure Plus",
-  description: "Here you can find the best movies and TV shows, and save them to watch them later!",
+  description:
+    "Here you can find the best movies and TV shows, and save them to watch them later!",
 };
 
 export default function RootLayout({

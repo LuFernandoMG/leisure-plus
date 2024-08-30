@@ -5,8 +5,21 @@ import styles from "./page.module.scss";
 import Featured from "@/components/Featured";
 import Poster from "@/components/Poster";
 import TrySearch from "@/components/TrySearch";
+import Modal from "@/components/Modal";
 
-export default async function Home() {
+type SearchParamProps = {
+  searchParams: Record<string, string> | null | undefined;
+};
+
+export default async function Home({ searchParams }: SearchParamProps) {
+  const show = searchParams?.show;
+  const type = searchParams?.type;
+  const id = searchParams?.id;
+
+  console.log('show ', show);
+  console.log('type ', type);
+  console.log('id ', id);
+
   const popularMovies = await fetchData({ endpoint: "/movie/popular" });
   const popularSeries = await fetchData({ endpoint: "/tv/popular" });
   const topRatedMovies = await fetchData({ endpoint: "/movie/top_rated" });
@@ -64,6 +77,7 @@ export default async function Home() {
         />
         <TrySearch />
       </div>
+      {show && type && id && <Modal type={type} id={id} />}
     </main>
   );
 }

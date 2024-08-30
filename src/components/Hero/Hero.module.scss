@@ -44,6 +44,7 @@
 }
 
 .hero_poster {
+    height: auto;
     max-width: 200px;
     margin: 0 3rem;
 }
@@ -53,7 +54,7 @@
     gap: 10px;
     margin: 10px 0 0 0;
 
-    button {
+    a {
         background: none;
         width: 24px;
         border: 1px solid white;
@@ -68,7 +69,7 @@
 }
 
 .icons {
-    button:hover {
+    a:hover {
         background: white;
         color: rgb(12, 31, 49);
         transition: 0.2s;
