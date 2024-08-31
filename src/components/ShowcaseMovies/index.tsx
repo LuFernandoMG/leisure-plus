@@ -4,7 +4,7 @@ import styles from "./Showcase.module.scss";
 import Carousel from "@/components/Carousel";
 import { FaList } from "react-icons/fa6";
 import { FiGrid } from "react-icons/fi";
-import { Movie, Show } from "@/utils/types";
+import { Movie } from "@/utils/types";
 import { moviesStore } from "@/store/moviesStore";
 import { useInView } from "react-intersection-observer";
 import Card from "../Card";

@@ -14,11 +14,12 @@ interface CarouselProps {
 }
 
 const Carousel: React.FC<CarouselProps> = ({ elements, title, ranking, root }) => {
+  const width = window.innerWidth;
   const [ref] = useKeenSlider<HTMLDivElement>({
-    loop: ranking ? undefined : true,
-    mode: ranking ? undefined : "free-snap",
+    loop: true,
+    mode: "free-snap",
     slides: {
-      perView: 6,
+      perView: width < 600 ?  1 : (width < 1200 ? 3 : 6),
       spacing: 15,
     },
   });

@@ -85,3 +85,38 @@
     color: #d6d6d6;
     padding: 5px 0;
 }
+
+@media screen and (max-width: 768px) {
+    .card {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .card__container {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .card__container:hover {
+        transform: scale(1.1);
+    }
+    
+    .card__container:hover img {
+        border-radius: 5px;
+    }
+    
+    .card__container:hover .cardHovered__info {
+        display: block;
+        background:rgb(12, 31, 49);
+        padding: 10px;
+        transform: translateY(0);
+        border-radius: 0 0 5px 5px;
+        box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
+    }
+    
+    .card__container:hover .cardHovered__info h3 {
+        font-size: 1rem;
+        padding-bottom: 0.2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    }
+}

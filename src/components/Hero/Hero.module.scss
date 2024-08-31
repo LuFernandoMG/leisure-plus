@@ -75,3 +75,9 @@
         transition: 0.2s;
     }
 }
+
+@media screen and (max-width: 512px) {
+    .hero_poster {
+        display: none;
+    }
+}

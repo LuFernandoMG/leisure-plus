@@ -81,3 +81,25 @@
     box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
     transition: transform 0.5s ease;
   }
+
+ @media screen and (max-width: 768px) {
+    .featured {
+        flex-direction: column;
+        margin: 16rem 0 2rem;
+    }
+
+    .featured__info {
+        padding: 1rem;
+    }
+
+    .featured__video {
+        padding: 1rem;
+    }
+
+    .featured_image_hp {
+        width: 100%;
+        height: auto;
+        margin: 0;
+    }
+    
+ } 

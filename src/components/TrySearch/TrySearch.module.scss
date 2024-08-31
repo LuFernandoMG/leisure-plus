@@ -14,3 +14,15 @@
 
     }
 }
+
+@media screen and (max-width: 512px) {
+    .try_search {
+        img {
+            display: none;
+        }
+
+        margin: 2rem;
+        margin-top: 16rem;
+    }
+    
+}
