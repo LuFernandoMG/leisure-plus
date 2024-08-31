@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { Show } from "@/utils/types";
 import styles from "./page.module.scss";
 import Showcase from "@/components/ShowcaseSeries";
@@ -36,6 +37,14 @@ const Page: React.FC<SearchParamProps> = async ({ searchParams }) => {
 
   return (
     <div className={styles.movies__container}>
+      <Head>
+        <title>Leisure Plus - Series</title>
+        <meta
+          name="description"
+          content="The best place to find your favorite TV shows and series"
+        />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <h1>Shows</h1>
       <Showcase data={showsByGenre} />
       {show && type && id && <Modal type={type} id={id} root="/series" />}
