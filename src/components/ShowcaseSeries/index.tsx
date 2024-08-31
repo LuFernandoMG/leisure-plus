@@ -40,11 +40,11 @@ const Showcase: React.FC<ShowcaseProps> = ({ data }) => {
   useEffect(() => {
     setPage(page + 1);
     fetchShows(sort, page, shows);
-  }, [sort, isInView]);
+  }, [sort, isInView, page, setPage, fetchShows, shows]);
 
   useEffect(() => {
     fetchShows(sort, page, shows);
-  }, []);
+  });
 
   const handleGrid = () => {
     setIsGrid(!isGrid);
