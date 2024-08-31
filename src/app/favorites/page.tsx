@@ -22,7 +22,7 @@ const Page: React.FC<SearchParamProps> = ({ searchParams }) => {
       {favorites.length > 0 ? (
         <div className={styles.results__grid}>
           {favorites.map((element: Movie | Show) => (
-            <Card element={element} clean root="/favorites" />
+            <Card element={element} key={element.id} clean root="/favorites" />
           ))}
         </div>
       ) : (

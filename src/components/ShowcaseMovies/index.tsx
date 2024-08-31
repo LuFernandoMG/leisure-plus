@@ -96,7 +96,7 @@ const Showcase: React.FC<ShowcaseProps> = ({ data }) => {
         <>
           <div className={styles.movies__grid}>
             {movies.map((movie: Movie) => (
-              <Card element={movie} clean root="/movies" />
+              <Card element={movie} key={movie.id} clean root="/movies" />
             ))}
           </div>
           <div ref={scrollTrigger} />

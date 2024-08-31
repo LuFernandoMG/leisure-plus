@@ -24,7 +24,7 @@ const Page: React.FC<SearchParamProps> = async ({ searchParams }) => {
       {searchResults.results.length > 0 ? (
         <div className={styles.results__grid}>
           {searchResults.results.map((element: Movie | Show) => (
-            <Card element={element} clean root="/search" />
+            <Card element={element} key={element.id} clean root="/search" />
           ))}
         </div>
       ) : (
