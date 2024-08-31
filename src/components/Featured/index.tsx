@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { fetchData } from "@/utils/fetchData";
 import styles from "./Featured.module.scss";
+import Link from "next/link";
 
 interface FeaturedProps {
   switchSides?: boolean;
@@ -58,12 +59,14 @@ const Featured: React.FC<FeaturedProps> = async ({
           </div>
           <div className={styles.featured__info}>
             <div className={styles.featured_HP__info}>
-              <Image
-                src={`https://image.tmdb.org/t/p/w500${HPCollection.poster_path}`}
-                alt="Harry Potter"
-                width={300}
-                height={500}
-              />
+              <Link href="/search?query=Harry%20potter">
+                <Image
+                  src={`https://image.tmdb.org/t/p/w500${HPCollection.poster_path}`}
+                  alt="Harry Potter"
+                  width={300}
+                  height={500}
+                />
+              </Link>
             </div>
           </div>
         </>

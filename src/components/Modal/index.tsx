@@ -9,9 +9,10 @@ import FavButton from "../FavButton";
 type ModalProps = {
   type: string;
   id: string;
+  root: string;
 };
 
-const Modal: React.FC<ModalProps> = async ({ type, id }) => {
+const Modal: React.FC<ModalProps> = async ({ type, id, root }) => {
   const element = await fetchData({ endpoint: `/${type}/${id}` });
 
   let genres = "";
@@ -39,7 +40,7 @@ const Modal: React.FC<ModalProps> = async ({ type, id }) => {
             </>
           </div>
           <div className={styles.close}>
-            <Link href="/" scroll={false}>
+            <Link href={root} scroll={false}>
               <FaXmark />
             </Link>
           </div>

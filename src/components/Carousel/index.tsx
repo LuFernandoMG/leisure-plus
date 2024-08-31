@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 import Card from "../Card";
@@ -10,9 +10,10 @@ interface CarouselProps {
   elements: Movie[] | Show[];
   title: string;
   ranking?: boolean;
+  root?: string;
 }
 
-const Carousel: React.FC<CarouselProps> = ({ elements, title, ranking }) => {
+const Carousel: React.FC<CarouselProps> = ({ elements, title, ranking, root }) => {
   const [ref] = useKeenSlider<HTMLDivElement>({
     loop: ranking ? undefined : true,
     mode: ranking ? undefined : "free-snap",
@@ -30,7 +31,7 @@ const Carousel: React.FC<CarouselProps> = ({ elements, title, ranking }) => {
       {!ranking && (
         <div ref={ref} className="keen-slider" style={{ overflow: "visible" }}>
           {elementsToShow.map((element) => (
-            <Card key={element.id} element={element} />
+            <Card key={element.id} root={root} element={element} />
           ))}
         </div>
       )}

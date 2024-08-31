@@ -16,10 +16,6 @@ export default async function Home({ searchParams }: SearchParamProps) {
   const type = searchParams?.type;
   const id = searchParams?.id;
 
-  console.log('show ', show);
-  console.log('type ', type);
-  console.log('id ', id);
-
   const popularMovies = await fetchData({ endpoint: "/movie/popular" });
   const popularSeries = await fetchData({ endpoint: "/tv/popular" });
   const topRatedMovies = await fetchData({ endpoint: "/movie/top_rated" });
@@ -66,6 +62,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
           elements={topRatedSeries.results}
           title="Top rated TV Shows"
         />
+        <TrySearch />
         <Carousel
           elements={trendingShows.results}
           ranking
@@ -75,9 +72,8 @@ export default async function Home({ searchParams }: SearchParamProps) {
           elements={topRatedMovies.results}
           title="Top rated Movies"
         />
-        <TrySearch />
       </div>
-      {show && type && id && <Modal type={type} id={id} />}
+      {show && type && id && <Modal type={type} id={id} root="/" />}
     </main>
   );
 }

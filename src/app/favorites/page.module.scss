@@ -1,0 +1,18 @@
+.container {
+    margin: 10rem 2rem;
+
+    h1 {
+        margin: 2rem;
+    }
+    
+    h2 {
+        margin: 2rem;
+    }
+}
+
+.results__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 2rem;
+}

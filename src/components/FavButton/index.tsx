@@ -18,8 +18,6 @@ const FavButton: React.FC<FavButtonProps> = ({ element, sm }) => {
     (fav: Movie | Show) => fav.id === element?.id
   );
 
-  console.log('favorites ', favorites);
-
   const handleFavorite = () => {
     isInFavorites ? removeFavorite(element) : addFavorite(element);
   };

@@ -24,8 +24,7 @@ const Search: React.FC<SearchProps> = ({ light }) => {
 
   const handleFormSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    // Call your search function here with the searchTerm
-    router.push(`/search/${searchTerm}`);
+    router.push(`/search?query=${searchTerm}`);
   };
 
   return (

@@ -1,7 +1,7 @@
 import { Movie, Show } from '@/utils/types';
 import { create } from 'zustand';
 
-export const favoriteStore = create((set) => ({
+export const favoriteStore = create((set: any) => ({
     favorites: [],
     addFavorite: (favorite: Movie | Show) => set((state: { favorites: (Movie | Show)[] }) => (
         { favorites: [...state.favorites, favorite] }
@@ -10,3 +10,4 @@ export const favoriteStore = create((set) => ({
         { favorites: state.favorites.filter((fav: Movie | Show) => fav.id !== favorite.id) }
     )),
 }));
+

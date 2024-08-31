@@ -1,12 +1,12 @@
 import { fetchData } from "./fetchData";
 
-export async function getGenresList() {
+export async function getGenresList(type: string): Promise<{ id: number, name: string }[]> {
   try {
-    const genres = await fetchData({
-      endpoint: "/genre/movie/list",
+    const genresList = await fetchData({
+      endpoint: `/genre/${type}/list`,
     });
 
-    return genres;
+    return genresList.genres;
   } catch (error) {
     console.error("Error fetching genres:", error);
     return [];
