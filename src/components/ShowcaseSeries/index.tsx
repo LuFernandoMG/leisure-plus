@@ -51,8 +51,8 @@ const Showcase: React.FC<ShowcaseProps> = ({ data }) => {
   };
 
   const carouselByGenre = Object.entries(data).map(([genre, movies]) => (
-    <div className={styles.carousel_wrapper}>
-      <Carousel key={genre} elements={movies} title={genre} root="/series" />
+    <div key={genre} className={styles.carousel_wrapper}>
+      <Carousel elements={movies} title={genre} root="/series" />
     </div>
   ));
 
