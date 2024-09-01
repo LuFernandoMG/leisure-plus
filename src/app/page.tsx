@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { fetchData } from "@/utils/fetchData";
 import Carousel from "@/components/Carousel";
 import Hero from "@/components/Hero";
@@ -29,14 +28,6 @@ export default async function Home({ searchParams }: SearchParamProps) {
 
   return (
     <main className={styles.main}>
-      <Head>
-        <title>Leisure Plus</title>
-        <meta
-          name="description"
-          content="The best place to find your favorite movies and TV shows"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <div className={styles.movie_container}>
         <Hero movie={heroMovie} />
         <Carousel

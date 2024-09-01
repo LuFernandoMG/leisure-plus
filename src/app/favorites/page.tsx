@@ -1,5 +1,4 @@
 'use client';
-import Head from "next/head";
 import { Show, Movie } from "@/utils/types";
 import styles from "./page.module.scss";
 import Card from "@/components/Card";
@@ -19,14 +18,6 @@ const Page: React.FC<SearchParamProps> = ({ searchParams }) => {
 
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Leisure Plus - Favorites</title>
-        <meta
-          name="description"
-          content="Check out your favorite TV shows and movies"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <h1>Favorites</h1>
       {favorites.length > 0 ? (
         <div className={styles.results__grid}>
