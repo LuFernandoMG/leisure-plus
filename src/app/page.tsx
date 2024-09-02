@@ -37,7 +37,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
         />
         <Featured
           videoUrl="https://www.youtube.com/embed/YN2H_sKcmGw?si=r2v1M_pZpbk-QsN_?autoplay=1&mute=1&controls=0"
-          switchSides
+          switchSides={true}
           videoTitle="The George RR Martin Universe"
         >
           <div>

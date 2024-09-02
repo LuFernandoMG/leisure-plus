@@ -2,7 +2,16 @@ import { fetchData } from '@/utils/fetchData';
 import { Movie } from '@/utils/types';
 import { create } from 'zustand';
 
-export const moviesStore = create((set) => ({
+type moviesStoreType = {
+    sort: string;
+    setSort: (sort: string) => void;
+    movies: Movie[];
+    fetchMovies: (sort: string, page: number, movies: Movie[]) => Promise<void>;
+    page: number;
+    setPage: (page: number) => void;
+};
+
+export const moviesStore = create<moviesStoreType>((set): moviesStoreType => ({
     sort: "popularity.desc",
     setSort: (sort: string) => set({ sort, page: 1, movies: [] }),
     movies: [],
