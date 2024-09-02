@@ -1,6 +1,6 @@
 describe('General E2E Test', () => {
   it('Go to Movies', () => {
-    cy.visit('localhost:3000')
+    cy.visit('localhost:3000/')
     cy.contains('Movies').click()
 
     // Check if we are in the movies page

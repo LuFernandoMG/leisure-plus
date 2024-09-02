@@ -8,6 +8,7 @@ import { Show } from "@/utils/types";
 import { tvStore } from "@/store/tvStore";
 import { useInView } from "react-intersection-observer";
 import Card from "../Card";
+import SidebarFilter from "../SidebarFilter";
 
 type ShowcaseProps = {
   data: Record<string, Show[]>;
@@ -40,10 +41,12 @@ const Showcase: React.FC<ShowcaseProps> = ({ data }) => {
   useEffect(() => {
     setPage(page + 1);
     fetchShows(sort, page, shows);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sort, isInView]);
 
   useEffect(() => {
     fetchShows(sort, page, shows);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleGrid = () => {
@@ -63,7 +66,12 @@ const Showcase: React.FC<ShowcaseProps> = ({ data }) => {
   return (
     <div className={styles.containerSwitch}>
       <div className={styles.sort}>
-        <select className={styles.select} name="sort" id="sort" onChange={handleSort}>
+        <select
+          className={styles.select}
+          name="sort"
+          id="sort"
+          onChange={handleSort}
+        >
           {Object.entries(sortValue).map(([key, value]) => (
             <option key={key} value={key}>
               {value}
@@ -92,12 +100,13 @@ const Showcase: React.FC<ShowcaseProps> = ({ data }) => {
       </div>
       {isGrid && (
         <>
+          <SidebarFilter applyFilters={() => {}} />
           <div className={styles.movies__grid}>
             {shows.map((show: Show) => (
               <Card element={show} key={show.id} clean root="/series" />
             ))}
+            <div ref={scrollTrigger} />
           </div>
-          <div ref={scrollTrigger} />
         </>
       )}
       {!isGrid && <div className={styles.movies__list}>{carouselByGenre}</div>}

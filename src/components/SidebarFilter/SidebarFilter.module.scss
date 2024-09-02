@@ -1,0 +1,69 @@
+.sidebar {
+    position: fixed;
+    margin: 1rem;
+    width: 270px;
+    right: 0;
+    border-radius: 5px;
+    background-color: #080d1a;
+    border: 1px solid #41335c;
+    padding: 2rem;
+    box-shadow: 4px 4px 10px 5px #101010;
+
+    h2 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    select {
+        width: 100%;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+
+    .originCountry {
+        width: 100%;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+
+    button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+            transition: all 0.3s ease;
+            background-color: #0056b3;
+        }
+    }
+}
+
+.sort {
+    margin-bottom: 20px;
+}
+
+.gender {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    
+    label {
+        margin: 0 5px;
+    }
+}
+
+.filterOrigin {
+    margin-bottom: 20px;
+}

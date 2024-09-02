@@ -8,24 +8,10 @@ import { Movie } from "@/utils/types";
 import { moviesStore } from "@/store/moviesStore";
 import { useInView } from "react-intersection-observer";
 import Card from "../Card";
+import SidebarFilter from "../SidebarFilter";
 
 type ShowcaseProps = {
   data: Record<string, Movie[]>;
-};
-
-const sortValue = {
-  "popularity.desc": "Popularity Descending",
-  "popularity.asc": "Popularity Ascending",
-  "vote_average.desc": "Rating Descending",
-  "vote_average.asc": "Rating Ascending",
-  "release_date.desc": "Release Date Descending",
-  "release_date.asc": "Release Date Ascending",
-  "title.asc": "Title Ascending",
-  "title.desc": "Title Descending",
-  "primary_release_date.asc": "Release Date Ascending",
-  "primary_release_date.desc": "Release Date Descending",
-  "original_title.asc": "Original Title Ascending",
-  "original_title.desc": "Original Title Descending",
 };
 
 const Showcase: React.FC<ShowcaseProps> = ({ data }) => {
@@ -38,14 +24,21 @@ const Showcase: React.FC<ShowcaseProps> = ({ data }) => {
   const setSort = moviesStore((state: any) => state.setSort);
   const page = moviesStore((state: any) => state.page);
   const setPage = moviesStore((state: any) => state.setPage);
+  const sortValues = moviesStore((state: any) => state.sortOptions);
+  const getGenderList = moviesStore((state: any) => state.setGenderList);
+  const genderList = moviesStore((state: any) => state.genderList);
+  const setFilters = moviesStore((state: any) => state.setFilters);
 
   useEffect(() => {
     setPage(page + 1);
     fetchMovies(sort, page, movies);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sort, isInView]);
 
   useEffect(() => {
+    getGenderList();
     fetchMovies(sort, page, movies);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleGrid = () => {
@@ -62,17 +55,23 @@ const Showcase: React.FC<ShowcaseProps> = ({ data }) => {
     setSort(event.target.value);
   };
 
+  const handleFilters = ({ selectedGenders, originCountry }: { selectedGenders: number[], originCountry: string }) => {
+    let genderFilter = "";
+    let countryFilter = "";
+
+    if (selectedGenders.length) {
+      genderFilter = selectedGenders.join(",");
+    }
+
+    if (originCountry) {
+      countryFilter = originCountry;
+    }
+
+    setFilters({ with_genres: genderFilter, with_origin_country: countryFilter, sort });
+  };
+
   return (
     <div className={styles.containerSwitch}>
-      <div className={styles.sort}>
-        <select className={styles.select} name="sort" id="sort" onChange={handleSort}>
-          {Object.entries(sortValue).map(([key, value]) => (
-            <option key={key} value={key}>
-              {value}
-            </option>
-          ))}
-        </select>
-      </div>
       <div className={styles.switch}>
         <input type="checkbox" onChange={handleGrid} id="switch" />
         <label htmlFor="switch">
@@ -93,14 +92,15 @@ const Showcase: React.FC<ShowcaseProps> = ({ data }) => {
         </label>
       </div>
       {isGrid && (
-        <>
+        <div className={styles.grid__layout}>
           <div className={styles.movies__grid}>
             {movies.map((movie: Movie) => (
               <Card element={movie} key={movie.id} clean root="/movies" />
             ))}
-          </div>
           <div ref={scrollTrigger} />
-        </>
+          </div>
+          <SidebarFilter genderList={genderList} handleSort={handleSort} sortValues={sortValues} applyFilters={handleFilters} />
+        </div>
       )}
       {!isGrid && <div className={styles.movies__list}>{carouselByGenre}</div>}
     </div>
