@@ -7,6 +7,8 @@ interface SidebarFilterProps {
   handleSort: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   genderList: { id: number; name: string }[];
   sortValues: Record<string, string>;
+  show: boolean;
+  hideFilters: () => void;
 }
 
 const SidebarFilter: React.FC<SidebarFilterProps> = ({
@@ -14,6 +16,8 @@ const SidebarFilter: React.FC<SidebarFilterProps> = ({
   sortValues,
   applyFilters,
   genderList,
+  show,
+  hideFilters,
 }) => {
   const [selectedGenders, setSelectedGenders] = useState<number[]>([]);
   const [originCountry, setOriginCountry] = useState<string>("");
@@ -37,11 +41,12 @@ const SidebarFilter: React.FC<SidebarFilterProps> = ({
   };
 
   const handleApplyFilters = () => {
+    hideFilters();
     applyFilters({ selectedGenders, originCountry });
   };
 
   return (
-    <div className={styles.sidebar}>
+    <div className={show ? styles.sidebar_active : styles.sidebar}>
       <h2>Filters and sorting</h2>
       <div className={styles.sort}>
         <label htmlFor="sort">Sort by:</label>

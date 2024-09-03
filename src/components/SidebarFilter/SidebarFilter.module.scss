@@ -1,4 +1,5 @@
-.sidebar {
+.sidebar,
+.sidebar_active {
     position: fixed;
     margin: 1rem;
     width: 270px;
@@ -67,4 +68,41 @@
 
 .filterOrigin {
     margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1200px) {
+    .sidebar {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: -265px;
+        transition: all 0.3s ease;
+        border-radius: 0;
+        display: flex;
+        border: none;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin: 2rem;
+        background-color: #11152fbc;
+        right: calc(100vw + 4rem);
+    }
+
+    .sidebar_active {
+        width: 100vw;
+        height: 100vh;
+        padding: 2rem;
+        position: absolute;
+        top: -265px;
+        transition: all 0.3s ease;
+        border-radius: 0;
+        display: flex;
+        border: none;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin: 2rem;
+        background-color: #11152fbc;
+        right: -4rem;
+    }
 }
