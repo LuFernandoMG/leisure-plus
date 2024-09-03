@@ -26,6 +26,10 @@ type moviesStoreType = {
     };
     genderList: { id: number, name: string }[];
     setGenderList: () => void;
+    filters: {
+        with_genres: string;
+        with_origin_country: string;
+    }
     setFilters: ({ with_genres, with_origin_country, sort }: { with_genres: string, with_origin_country: string, sort: string }) => void;
 };
 
@@ -47,9 +51,9 @@ export const moviesStore = create<moviesStoreType>((set): moviesStoreType => ({
     },
     setSort: (sort: string) => set({ sort, page: 1, movies: [] }),
     movies: [],
-    fetchMovies: async (sort: string, page: number, movies: Movie[]) => {
+    fetchMovies: async (sort: string, page: number, movies: Movie[], filters?: { with_genres: string, with_origin_country: string } ) => {
         const response = await fetchData({
-            endpoint: `/discover/movie?include_adult=false&sort_by=${sort}&page=${page}`,
+            endpoint: `/discover/movie?include_adult=false&sort_by=${sort}&page=${page}${filters?.with_genres || filters?.with_origin_country ? `&with_genres=${filters.with_genres}&with_origin_country=${filters.with_origin_country}` : ""}`,
         });
         set({ movies: [...movies, ...response.results] });
     },
@@ -60,10 +64,14 @@ export const moviesStore = create<moviesStoreType>((set): moviesStoreType => ({
         const response = await getGenresList("movie");
         set({ genderList: response });
     },
+    filters: {
+        with_genres: "",
+        with_origin_country: "",
+    },
     setFilters: async ({ with_genres, with_origin_country, sort }) => {
         const response = await fetchData({
             endpoint: `/discover/movie?include_adult=false&sort_by=${sort}&with_origin_country=${with_origin_country}&with_genres=${with_genres}&page=1`,
         });
-        set({ movies: response.results, page: 1 });
+        set({ movies: response.results, page: 1, filters: { with_genres, with_origin_country } });
     },
 }));

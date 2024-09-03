@@ -77,7 +77,7 @@ const SidebarFilter: React.FC<SidebarFilterProps> = ({
             className={styles.originCountry}
           type="text"
           id="originCountry"
-          placeholder="ex. Colombia"
+          placeholder="ex. 'CO,MX' 'US|VE'"
           onChange={(event) => {
             const originCountry = event.target.value;
             handleOriginCountryFilter(originCountry);

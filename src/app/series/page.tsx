@@ -1,6 +1,6 @@
 import { Show } from "@/utils/types";
 import styles from "./page.module.scss";
-import Showcase from "@/components/ShowcaseSeries";
+import Showcase from "@/components/Showcase";
 import { getGenresList } from "@/utils/getGenres";
 import { fetchData } from "@/utils/fetchData";
 import Modal from "@/components/Modal";
@@ -37,7 +37,7 @@ const Page: React.FC<SearchParamProps> = async ({ searchParams }) => {
   return (
     <div className={styles.movies__container}>
       <h1>Shows</h1>
-      <Showcase data={showsByGenre} />
+      <Showcase data={showsByGenre} type="tv" />
       {show && type && id && <Modal type={type} id={id} root="/series" />}
     </div>
   );
